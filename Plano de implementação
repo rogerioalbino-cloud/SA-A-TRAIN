@@ -1,0 +1,302 @@
+# Plano de Implementação
+
+## Seção 1 — Identificação e visão geral
+
+### Nome do grupo:
+
+Ferrorama
+
+### Integrantes:
+
+Rogério | Otávio | Bernardo | Arthur
+
+### Link do mockup:
+
+https://www.canva.com/design/DAHKrENjWMc/u1Z5dKgLnu8o7Vo2nqMpOA/edit
+
+### Resumo do sistema:
+
+O **Ferrorama** é um sistema de monitoramento inteligente de frotas ferroviárias desenvolvido para auxiliar operadores, técnicos e administradores no acompanhamento das operações ferroviárias. O sistema permite visualizar informações sobre os trens, consultar o status da frota, acompanhar alertas e gerar relatórios de ocorrências. Seu diferencial é reunir todas essas informações em uma interface simples, organizada e de fácil acesso.
+
+### Decisão Técnica da Stack
+
+Utilizaremos o **Visual Studio Code** como ambiente de desenvolvimento.
+
+### HTML
+
+Será utilizado para estruturar todas as páginas do sistema, organizando os elementos da interface, como formulários, tabelas, cartões de informações e menus de navegação.
+
+### CSS
+
+Será utilizado para estilizar todas as telas do sistema, seguindo o padrão visual definido no mockup. Também será responsável pelo alinhamento dos componentes, aplicação de cores, tipografia, espaçamentos e adaptação da interface para diferentes tamanhos de tela.
+
+---
+
+# Seção 2 — Arquitetura de Arquivos e Pastas
+
+## Estrutura de Pastas
+
+```text
+ferrorama/
+
+├── index.html
+
+├── pages/
+│   ├── login.html
+│   ├── cadastro.html
+│   ├── dashboard.html
+│   ├── trens.html
+│   └── relatorios.html
+
+├── css/
+│   ├── global.css
+│   ├── header.css
+│   ├── buttons.css
+│   ├── cards.css
+│   ├── forms.css
+│   └── tabelas.css
+
+├── assets/
+│   ├── images/
+│   ├── icons/
+│   └── logo/
+
+└── docs/
+    └── PLANO_IMPLEMENTACAO.md
+```
+
+## Justificativa
+
+A pasta **pages** reúne todas as páginas do sistema, facilitando sua organização.
+
+A pasta **css** armazena os arquivos responsáveis pela estilização da aplicação, separados por componentes para evitar repetição de código e facilitar futuras alterações.
+
+A pasta **assets** concentra todos os recursos visuais utilizados no projeto, como imagens, ícones e a logomarca do sistema.
+
+A pasta **docs** será utilizada para armazenar toda a documentação produzida durante a Situação de Aprendizagem.
+
+### Por que separar os arquivos?
+
+Os arquivos CSS foram organizados por componentes (botões, formulários, cartões e cabeçalho), permitindo que o mesmo estilo seja reutilizado em diferentes telas do sistema.
+
+A separação das páginas facilita a manutenção do projeto e torna a navegação entre as telas mais organizada.
+
+Essa estrutura deixa o projeto mais limpo, organizado e de fácil manutenção, além de facilitar o trabalho em equipe durante o desenvolvimento.
+
+# Seção 3 — Componentes Reutilizáveis Identificados
+
+### Botão Primário
+
+**Aparece em:** Login, Cadastro e Relatórios.
+**Variações:** normal, hover e desabilitado.
+
+### Campos de Formulário
+
+**Aparecem em:** Login, Cadastro e Relatórios.
+**Variações:** campo de texto, e-mail, senha, confirmação de senha, seleção de período e tipo de relatório.
+
+### Card de Informação
+
+**Aparece em:** Dashboard.
+**Variações:** indicadores de trens ativos, velocidade média, alertas ativos e sensores críticos.
+
+### Card de Trem
+
+**Aparece em:** Tela de Trens.
+**Variações:** trem ativo, parado e em manutenção.
+
+### Badge de Status
+
+**Aparece em:** Dashboard e Trens.
+**Variações:** Ativo, Parado e Em Manutenção.
+
+### Título e Identidade Visual
+
+**Aparece em:** Login, Cadastro, Dashboard, Trens e Relatórios.
+**Variações:** logotipo do sistema e título da aplicação.
+
+### Gráficos e Indicadores
+
+**Aparecem em:** Relatórios.
+**Variações:** gráfico de ocorrências por categoria e filtros de pesquisa.
+
+Todos esses componentes serão desenvolvidos uma única vez e reutilizados nas diferentes telas do sistema, reduzindo a repetição de código, facilitando a manutenção e mantendo um padrão visual consistente.
+
+---
+
+# Seção 4 — Ordem de Implementação
+
+### 1. Componentes Base
+
+* Botões
+* Campos de formulário
+* Cards
+* Badges de status
+* Estilos globais
+
+**Justificativa:** Esses componentes aparecem em várias telas do sistema e servirão de base para todo o desenvolvimento.
+
+### 2. Tela de Login
+
+**Justificativa:** É a primeira tela acessada pelo usuário e permite a entrada no sistema.
+
+### 3. Tela de Cadastro
+
+**Justificativa:** Complementa o processo de autenticação, permitindo o registro de novos usuários.
+
+### 4. Dashboard
+
+**Justificativa:** Após o login, o usuário visualiza os principais indicadores da frota ferroviária.
+
+### 5. Tela de Trens
+
+**Justificativa:** Exibe a lista de trens monitorados e seus respectivos status de operação.
+
+### 6. Tela de Relatórios
+
+**Justificativa:** Permite consultar informações estatísticas e visualizar gráficos de ocorrências da frota.
+
+---
+
+# Seção 5 — Fluxos de Navegação do Usuário
+
+## Fluxo 1 — Realizar Login
+
+**Perfil:** Operador
+
+Tela de Login
+
+↓
+
+Insere usuário e senha
+
+↓
+
+Clica em **"Entrar"**
+
+↓
+
+Dashboard
+
+↓
+
+Visualiza os principais indicadores da frota.
+
+---
+
+## Fluxo 2 — Criar uma Conta
+
+**Perfil:** Novo usuário
+
+Tela de Login
+
+↓
+
+Clica em **"Cadastre-se"**
+
+↓
+
+Tela de Cadastro
+
+↓
+
+Preenche os dados solicitados
+
+↓
+
+Clica em **"Cadastrar"**
+
+↓
+
+Sistema retorna para a tela de Login
+
+↓
+
+Realiza o primeiro acesso.
+
+---
+
+## Fluxo 3 — Consultar Trens
+
+**Perfil:** Operador
+
+Dashboard
+
+↓
+
+Acessa a tela de Trens
+
+↓
+
+Visualiza a lista de trens
+
+↓
+
+Consulta o status de cada trem (Ativo, Parado ou Em Manutenção).
+
+---
+
+## Fluxo 4 — Gerar Relatório
+
+**Perfil:** Técnico
+
+Dashboard
+
+↓
+
+Acessa Relatórios
+
+↓
+
+Seleciona o período desejado
+
+↓
+
+Escolhe o tipo de relatório
+
+↓
+
+Visualiza os gráficos e informações das ocorrências.
+
+---
+
+## Fluxo 5 — Consultar Indicadores da Frota
+
+**Perfil:** Operador
+
+Realiza login
+
+↓
+
+Dashboard
+
+↓
+
+Visualiza informações sobre:
+
+* Trens ativos
+* Velocidade média
+* Alertas ativos
+* Sensores críticos
+
+---
+
+## Fluxo 6 — Encerrar Sessão
+
+**Perfil:** Todos os usuários
+
+Dashboard
+
+↓
+
+Seleciona a opção **"Sair"** (logout)
+
+↓
+
+O sistema encerra a sessão
+
+↓
+
+Retorna para a tela de Login.
+
+
