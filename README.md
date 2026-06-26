@@ -32,8 +32,8 @@ O sistema é composto pelas seguintes páginas:
 
 # Tecnologias Utilizadas
 
-- HTML5
-- CSS3
+- HTML
+- CSS
 - Visual Studio Code
 - Git e GitHub
 
